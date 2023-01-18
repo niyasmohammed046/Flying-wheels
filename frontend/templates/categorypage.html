@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% extends "findex.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <section class="ftco-section">
+    	<div class="container">
+				<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<span class="subheading">Featured Products</span>
+            <h2 class="mb-4"> Choose your Bike </h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+          </div>
+        </div>   		
+    	</div>
+
+    	<div class="container">
+    		<div class="row">
+				{% for d in data %}
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="#" class="img-prod"><img class="img-fluid" style="height: 200px; width: 270px;"  src="{{d.Image.url}}" alt="Colorlib Template" >
+    						
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#">{{d.Bikename}} </a></h3>
+							<h3><a href="#">{{d.Price}}₹ per day</a></h3>
+    						<!-- <div class="d-flex">
+								<div class="text py-3 pb-4 px-3 text-center"> -->
+
+								<form action="{% url 'singleproduct' dataid=d.id %}">
+								<button type="submit" class="btn btn-danger"> Go To Details </button> <br> <br> <br> <br> 
+								</form>
+								<div class="d-flex"></div>
+		    					</div>
+	    					</div>
+	    					
+    					</div>
+						{% endfor %}
+    				</div>
+
+    			</div>
+				
+    			
+    	
+    	
+		
+    </section>
+
+	<!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+		<div class="col">
+			{% for d in data %}
+		  <div class="card h-100">
+			<img src="{{d.Image.url}}" class="card-img-top" style="height: 200px; width: 250px;" alt="...">
+			<div class="card-body">
+			  <h5 class="card-title">{{d.Company}}</h5>
+			  <h5 class="card-title">{{d.Bikename}}</h5>
+			  <p class="card-text">{{d.Description}}</p>
+			</div>
+			<div class="card-footer">
+			  <small class="text-muted">{{d.Price}}₹</small> <br>
+			  <button class="btn btn-success">Go to Details</button>
+			</div>
+		  </div>
+		</div> <br> <br>
+		{% endfor %}
+		<div class="col">
+		  <div class="card h-100">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body">
+			  <h5 class="card-title">Card title</h5>
+			  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+			</div>
+			<div class="card-footer">
+			  <small class="text-muted">Last updated 3 mins ago</small>
+			</div>
+		  </div>
+		</div> -->
+		<!-- <div class="col">
+		  <div class="card h-100">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body">
+			  <h5 class="card-title">Card title</h5>
+			  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+			</div>
+			<div class="card-footer">
+			  <small class="text-muted">Last updated 3 mins ago</small>
+			</div>
+		  </div>
+		</div> 
+	  </div> -->
+    
+</body>
+</html>
+{% endblock %}

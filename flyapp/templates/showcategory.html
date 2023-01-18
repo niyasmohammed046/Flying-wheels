@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'indexpg.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Added Category</h5>
+            <div class="table-responsive">
+             <table class="table table-striped">
+                <thead>
+            <tr>
+                    
+                  
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+
+                  
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                    {% for d in data %}
+                  <tr>
+                   
+                   
+                    <td>{{d.Category}}</td>
+                    <td>{{d.CatDescription}}</td>
+                    <td>
+                      <img src="{{d.CatImage.url}}" width="70px" ></td>
+                    </td>
+                    
+
+                  <td>
+                    <form action="{% url 'editcategory'  dataid=d.id %}">
+                    <button type="submit" class="btn btn-dark" >Edit</button> </form>
+                </td>   
+                <td>
+                    <form action="{% url 'deletecategory' dataid=d.id %}">
+                    <button type="submit" class="btn btn-danger" >Delete</button> </form>
+                </td>
+
+             </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+          </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+{% endblock %}

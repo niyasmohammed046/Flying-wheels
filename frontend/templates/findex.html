@@ -1,0 +1,840 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Flying Wheels</title>
+	<meta name="description" content="Scarica gratis il nostro Template HTML/CSS GARAGE. Se avete bisogno di un design per il vostro sito web GARAGE può fare per voi. Web Domus Italia">
+	<meta name="author" content="Web Domus Italia">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'source/bootstrap-3.3.6-dist/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'source/font-awesome-4.5.0/css/font-awesome.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/slider.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/mystyle.css' %}">
+	<style>
+		a:hover{
+			color:white; 
+		}
+	</style>
+</head>
+<body>
+<!-- Header -->
+<div class="allcontain">
+	<div class="header">
+			<ul class="socialicon">
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+			</ul>
+			<ul class="givusacall">
+				<li>Give us a call : +919567123456 </li>
+			</ul>
+			<ul class="logreg">
+				<li><a href="{% url 'logout' %}">Logout </a> </li>
+				<!-- <li><a href="{% url 'frontendloginpage' %}"><span class="register">Register</span></a></li> -->
+			</ul>
+	
+	</div>
+	
+	<!-- Navbar Up -->
+	<nav class="topnavbar navbar-default topnav">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed toggle-costume" data-toggle="collapse" data-target="#upmenu" aria-expanded="false">
+					<span class="sr-only"> Toggle navigaion</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand logo"  href="{% url 'findex' %}"><img style="height: 69px; width: 90px; margin-top: -9px;" src="{% static 'image/log.jpg' %}" alt=""></a>
+			</div>	
+			
+		</div>
+		
+		
+		<div class="collapse navbar-collapse" id="upmenu">
+			<ul class="nav navbar-nav" id="navbarontop">
+				
+				<li class="active"><a href="{% url 'findex' %}">HOME</a> </li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES <span class="caret"></span></a>
+					<ul class="dropdown-menu dropdowncostume">
+					{% for d in da %}
+						<li><a href="{% url 'category' itemcat=d.Category %}" >{{d.Category}}</a></li>
+					{% endfor %}
+					</ul>
+				</li>
+				<li class="active"><a href="{% url 'contactpg' %}">Contact Us</a> </li>
+				<li class="active"><a href="{% url 'frontendloginpage' %}">Login | Register</a> </li>
+
+				{% if request.session.username %}
+				<span style="position: absolute; padding-left: 380px; padding-top: 3px; color: rgb(8, 47, 69);"> <b>{{request.session.username}}</b></span>
+				{% endif %}
+				<!-- <li class="active"><a href="{% url 'logout' %}">Logout</a> </li> -->
+
+				<div>
+				<li>
+				</li>
+			</div>
+			
+				<!-- <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DEALERS <span class="caret"></span></a>
+						<ul class="dropdown-menu dropdowncostume">
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="3">3</a></li>
+						</ul>
+				</li> -->
+			</ul>
+		</div>
+	</nav>
+</div>
+{% block content %}
+<!--_______________________________________ Carousel__________________________________ -->
+<div class="allcontain">
+	<div id="carousel-up" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner " role="listbox">
+			<div class="item active">
+				<img src="{% static 'image/ktm adv.jpg' %}" alt="oldcar">
+				<div style="margin-top: -100px;" class="carousel-caption">
+					<h2>KTM Adventure</h2>
+					<p>The <b>KTM Adventure</b> takes exploration further by merging all roads<br>
+						versatility and proven reliability with real-world perfomance </p>
+				</div>
+			</div>
+			<div class="item">
+				<img src="{% static 'image/yamaha-mt 2.jpg' %}" alt="porche">
+				<div class="carousel-caption">
+					<h2>Yamaha MT-10</h2>
+						<p>The MT-10 is a standard motorcycle made by Japanese motorcycle <br> manufacturer Yamaha in their MT motorcycle series,first sold in 2016.<br> It was introduced at the 2015 EICMA in Milan, Italy. </p>
+				</div>
+			</div>
+			<!-- <div class="item">
+				<img src="{% static 'image/Panigale.jpg' %}" alt="img">
+				<div class="carousel-caption" style="margin-left: 550px;">
+					<h2> <center>Panigale V4</center></h2>
+                     <p><b>The Evolution of Speed</b></p>
+					<p>The Panigale V4 MY23 represents the last step in the characteristic <br>
+                        path of Borgo Panigale's sports bikes. As is the case with motorcycles<br>
+                        engaged in MotoGP and WorldSBK, the Panigale V4 is updated and improved <br>
+                        year after year, and the 2022 version represents the most significant evolution <br> 
+						since its launch yeased do eiusmod tempor incididunt ut labore </p>
+				</div>
+			</div> -->
+		</div>
+		<!-- <nav class="navbar navbar-default midle-nav">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed textcostume" data-toggle="collapse" data-target="#navbarmidle" aria-expanded="false">
+						<h1>SEARCH TEXT</h1>
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarmidle">
+				<div class="searchtxt">
+					<h1>SEARCH TEXT</h1>
+				</div>
+				<form class="navbar-form navbar-left searchformmargin" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control searchform" placeholder="Enter Keyword">
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbarborder">
+					<li class="li-category">
+						<a class="btn  dropdown-toggle btn-costume"  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Category<span class="glyphicon glyphicon-chevron-down downicon"></span></a>
+						<ul class="dropdown-menu" id="mydd">
+							<li><a href="#">Epic</a></li>
+							<li><a href="#">Old</a></li>
+							<li><a href="#">New</a></li>
+						</ul>
+					</li>
+					<li class="li-minyear"><a class="btn  dropdown-toggle btn-costume"  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Min Year <span class="glyphicon glyphicon-chevron-down downicon"></span></a>
+						<ul class="dropdown-menu" id="mydd2">
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+						</ul>
+					</li>
+					<li class="li-maxyear"><a class="btn dropdown-toggle btn-costume"  id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Max Year <span class="glyphicon glyphicon-chevron-down downicon"></span></a>
+						<ul class="dropdown-menu" id="mydd3">
+							<li><a href="#">1900</a></li>
+							<li><a href="#">2000</a></li>
+							<li><a href="#">2016</a></li>
+						</ul>
+					</li>
+					<li class="li-slideprice">
+						<p> <label class="slidertxt" for="amount">Price </label>
+							<input class="priceslider" type="text" id="amount" readonly="readonly">
+						</p>
+							<div id="slider-range"></div>
+							
+					</li>
+					<li class="li-search"> <button class="searchbutton"><span class="glyphicon glyphicon-search "></span></button></li>
+				</ul>
+ 
+			</div>
+		</nav> -->
+	</div>
+</div>
+<!-- ____________________Featured Section ______________________________--> 
+<a>
+	<section class="ftco-section">
+		<div class="container">
+				<div class="row justify-content-center mb-3 pb-3">
+		  <div class="col-md-12 heading-section text-center ftco-animate">
+			  <div class="feturedsection">
+				<h1 class="text-center"><span class="bdots">&bullet;</span>F E A T U R E D<span class="carstxt">C A T E G O R Y</span>&bullet;</h1>
+			</div>
+		  </div>
+		</div>   		
+		</div>
+		<div class="container">
+			<div class="row">
+				{% for d in da %}
+				<div  class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+					<div>
+						<center>
+						<a href="{% url 'category' itemcat=d.Category %}" class="img-prod"><img class="img-fluid" style="width: 280px; height: 200px;" src="{{d.CatImage.url}}" alt="Colorlib Template">
+							
+							<!-- <span class="status">30%</span>
+							<div class="overlay"></div> -->
+						</a>
+					</center>
+					</div>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">{{d.Category}}</a></h3>
+							
+							<div class="d-flex">
+								<div class="text py-3 pb-4 px-3 text-center">
+	
+								<h3><a href="#">{{d.Description}}</a></h3>
+								
+								
+								<!-- <div class="pricing"> -->
+									<!-- <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p> -->
+								</div>
+							</div>
+							<!-- <div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div> -->
+						</div>
+					</div>
+	
+				</div>
+				{% endfor %} 
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="{% static 'images/product-2.jpg' %}" alt="Colorlib Template">
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">Strawberry</a></h3>
+							<div class="d-flex">
+								<div class="pricing">
+									<p class="price"><span>$120.00</span></p>
+								</div>
+							</div>
+							<div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="{% static 'images/product-3.jpg' %}" alt="Colorlib Template">
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">Green Beans</a></h3>
+							<div class="d-flex">
+								<div class="pricing">
+									<p class="price"><span>$120.00</span></p>
+								</div>
+							</div>
+							<div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="{% static 'images/product-4.jpg' %}" alt="Colorlib Template">
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">Purple Cabbage</a></h3>
+							<div class="d-flex">
+								<div class="pricing">
+									<p class="price"><span>$120.00</span></p>
+								</div>
+							</div>
+							<div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+	
+	
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="{% static 'images/product-5.jpg' %}" alt="Colorlib Template">
+							<span class="status">30%</span>
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">Tomatoe</a></h3>
+							<div class="d-flex">
+								<div class="pricing">
+									<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
+								</div>
+							</div>
+							<div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="{% static 'images/product-6.jpg' %}" alt="Colorlib Template">
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">Brocolli</a></h3>
+							<div class="d-flex">
+								<div class="pricing">
+									<p class="price"><span>$120.00</span></p>
+								</div>
+							</div>
+							<div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="{% static 'images/product-7.jpg' %}" alt="Colorlib Template">
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">Carrots</a></h3>
+							<div class="d-flex">
+								<div class="pricing">
+									<p class="price"><span>$120.00</span></p>
+								</div>
+							</div>
+							<div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="product">
+						<a href="#" class="img-prod"><img class="img-fluid" src="{% static 'images/product-8.jpg' %}" alt="Colorlib Template">
+							<div class="overlay"></div>
+						</a>
+						<div class="text py-3 pb-4 px-3 text-center">
+							<h3><a href="#">Fruit Juice</a></h3>
+							<div class="d-flex">
+								<div class="pricing">
+									<p class="price"><span>$120.00</span></p>
+								</div>
+							</div>
+							<div class="bottom-area d-flex px-3">
+								<div class="m-auto d-flex">
+									<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+										<span><i class="ion-ios-menu"></i></span>
+									</a>
+									<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+										<span><i class="ion-ios-cart"></i></span>
+									</a>
+									<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										<span><i class="ion-ios-heart"></i></span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				 -->
+			</div>
+		</div>
+	</section>
+</a>
+<!-- <div class="allcontain">
+	<div class="feturedsection">
+		<h1 class="text-center"><span class="bdots">&bullet;</span>F E A T U R E D<span class="carstxt">C A T E G O R Y</span>&bullet;</h1>
+	</div>
+	<div class="feturedimage">
+		<div class="row firstrow">
+			<div class="col-lg-6 costumcol colborder1">
+				<div class="row costumrow">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img1colon">
+						<img src="{% static 'image/yamaha-mt.jpg' %}" alt="porsche">
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
+						<div class="featurecontant">
+							<h1>LOREM IPSUM</h1>
+							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
+			 						sed do eiusmod tempor incididunt </p>
+			 				<h2>Price &euro;</h2>
+			 				<button id="btnRM" onclick="rmtxt()">READ MORE</button>
+			 				<div id="readmore">
+			 						<h1>Car Name</h1>
+			 						<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
+			 						sed do eiusmod tempor incididunt <br>"Lorem ipsum dolor sit amet, consectetur ,<br>
+			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1 ,
+			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1
+			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1<br>
+			 						</p>
+			 						<button id="btnRL">READ LESS</button>
+			 				</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 costumcol colborder2">
+				<div class="row costumrow">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img2colon">
+						<img src="{% static 'image/tiger.jpg' %}" alt="porsche1">
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
+						<div class="featurecontant">
+							<h1>LOREM IPSUM</h1>
+							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
+			 						sed do eiusmod tempor incididunt </p>
+			 				<h2>Price &euro;</h2>
+			 				<button id="btnRM2">READ MORE</button>
+			 				<div id="readmore2">
+			 						<h1>Car Name</h1>
+			 						<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
+			 						sed do eiusmod tempor incididunt <br>"Lorem ipsum dolor sit amet, consectetur ,<br>
+			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1 ,
+			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1
+			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1<br></p>
+			 						<button id="btnRL2">READ LESS</button>
+			 				</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- ________________________LATEST CARS SECTION _______________________ -->
+
+ <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+	<div class="col">
+	  <div class="card">
+		<img src="" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Card title</h5>
+		  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		</div>
+	  </div>
+	</div>
+	<div class="col">
+	  <div class="card">
+		<img src="..." class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Card title</h5>
+		  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		</div>
+	  </div>
+	</div>
+	<div class="col">
+	  <div class="card">
+		<img src="..." class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Card title</h5>
+		  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+		</div>
+	  </div>
+	</div>
+	<div class="col">
+	  <div class="card">
+		<img src="..." class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Card title</h5>
+		  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		</div>
+	  </div>
+	</div>
+  </div> -->
+<div class="latestcars">
+	<h1 class="text-center">&bullet; LATEST BIKES  &bullet;</h1>
+	<!-- <ul class="nav nav-tabs navbar-left latest-navleft">
+		<li role="presentation" class="li-sortby"><span class="sortby">SORT BY: </span></li>
+		<li data-filter=".RECENT" role="presentation"><a href="#mostrecent" class="prcBtnR">MOST RECENT </a></li>
+		<li data-filter=".POPULAR" role="presentation"><a href="#mostpopular" class="prcBtnR">MOST POPULAR </a></li>
+		<li  role="presentation"><a href="#" class="alphSort">ALPHABETICAL </a></li>
+		<li data-filter=".HPRICE" role="presentation"><a href="#" class="prcBtnH">HIGHEST PRICE </a></li>
+		<li data-filter=".LPRICE" role="presentation"><a href="#" class="prcBtnL">LOWEST  PRICE </a></li>
+		<li id="hideonmobile">
+	</ul> -->
+</div>
+<br>
+<br>
+<!-- ________________________Latest Cars Image Thumbnail________________-->
+	<div class="grid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{% static 'image/mt-07.jpg' %}" alt="car1">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name"> YAMAHA MT-10</h3>
+								<p>The MT-10 is a standard motorcycle made by Japanese motorcycle manufacturer Yamaha in their MT motorcycle series,first sold in 2016. It was introduced at the 2015 EICMA in Milan, Italy. It is the flagship member of the MT range from Yamaha. The crossplane engine is based on the 2015 YZF-R1 but re-tuned to focus on low to mid-range torque. It features a number of significant technical changes including newly designed intake, exhaust and fuelling systems. It produces a claimed 118 kW (158.2 hp; 160.4 PS) @ 11,500 rpm and 111 N⋅m (82 lbf⋅ft) @ 9,000 rpm. The bike with non-functional V-Max-like air scoops replaces the fourteen-year old FZ1 as the flagship bike in Yamaha's sport naked range</p>
+	 							<h4 class="price">4500₹</h4>
+	 							<!-- <div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+		 						</div> -->
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
+				<div class="txthover">
+					<img src="{% static 'image/panigalev4.jpg' %}" alt="car2">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name">DUCATI PANIGALE V4</h3>
+								<p>The PANIGALE V4 is Ducati's first large-production street bike with a V4 engine, Ducati having primarily used V-twins since the 1960s, except on prototypes and racing motorcycles. They had sold a short run of 1,500 street-legal V4 Desmosedici RRs in 2007 and 2008 and made two prototypes of the Apollo V4 in 1964 .The Panigale V4's 1,103 cc (67.3 cu in) desmodromic 90° V4 engine, unlike the prior 1199 and 1299 where the engine is the primary element of the frame, is surrounded by a more conventional aluminum perimeter frame.The engine is rotated further backwards than other Ducatis, so that the swingarm pivot is mated to the rear cylinders</p>
+	 							<h4 class="price">5000₹</h4>
+	 							<!-- <button>READ MORE</button><br>
+	 							<div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+		 						</div> -->
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{% static 'image/s1000rrrrrr.jpg' %}" alt="car3">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name">BMW S1000RR</h3>
+								<p> The S1000RR is a race oriented sport bike initially made by BMW Motorrad to compete in the 2009 Superbike World Championship, that is now in commercial production. It was introduced in Munich in April 2008,and is powered by a 999 cc (61.0 cu in) four-cylinder engine redlined at 14,200 rpm.
+								BMW made 1,000 S1000RRs in 2009 to satisfy World Superbike homologation requirements, but expanded production for commercial sale of the bike in 2010. It has a standard anti-lock braking system, with an optional electronic traction control</p>
+	 							<h4 class="price">4500₹ </h4>
+	 							<!-- <button>READ MORE</button><br>
+	 							<div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+		 						</div> -->
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{% static 'image/IMG_9DA077094FE4-1.jpeg' %}" alt="car4">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name">KTM 1290 SUPER DUKE R</h3>
+								<p>KTM 1290 Super Duke R is a naked bike. The 2014–2016 models suspension was considered to be too soft but the 2017 update has addressed this with stiffer springs.The 2016 model had compression ratio of 13.2:1 and 2017 model has increased compression ratio to 13.6:1. The 2017 model comes with Cruise control as standard and has upgraded electronics such as lean angle sensitive traction control, ride by wire, and optional track mode along with previous model's cornering ABS, quickshifter, riding modes etc </p>
+	 							<h4 class="price">6000₹</h4>
+	 							<!-- <button>READ MORE</button><br> -->
+	 							<!-- <div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+		 						</div> -->
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div>
+			<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{% static 'image/tiger-900.jpg' %}" alt="car5">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name"> BMW S1000 RR</h3>
+								<p>"Lorem ipsum dolor sit amet, consectetur,<br>
+	 							sed do eiusmod tempor incididunt" </p>
+	 							<h4 class="price">1200 &euro;</h4>
+	 							<button>READ MORE</button><br>
+	 							<div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+		 						</div>
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div> -->
+			<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{% static 'image/v4.jpg' %}" alt="car6">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name">Porche 911</h3>
+								<p>"Lorem ipsum dolor sit amet, consectetur,<br>
+	 							sed do eiusmod tempor incididunt" </p>
+	 							<h4 class="price">4000 &euro;</h4>
+	 							<button>READ MORE</button><br>
+	 							<div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'mage/compicon.png' %}" alt="compicon"></span></p>
+		 						</div>
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div> -->
+			<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{% static 'image/street.jpg' %}" alt="car7">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name">Chevrolet SS</h3>
+								<p>"Lorem ipsum dolor sit amet, consectetur,<br>
+	 							sed do eiusmod tempor incididunt" </p>
+	 							<h4 class="price">3000 &euro;</h4>
+	 							<button>READ MORE</button><br>
+	 							<div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+		 						</div>
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div> -->
+			<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{% static 'image/z900.jpg' %}" alt="car8">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name">Meclaren</h3>
+								<p>"Lorem ipsum dolor sit amet, consectetur,<br>
+	 							sed do eiusmod tempor incididunt" </p>
+	 							<h4 class="price">2500 &euro;</h4>
+	 							<button>READ MORE</button><br>
+	 							<div class="wishtxt">
+		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+		 							<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+		 						</div>
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>	 
+			</div>	 -->
+		</div>
+	</div>
+<!-- _______________________________News Letter ____________________-->
+	<div class="newslettercontent">
+		<div class="leftside">
+			<img src="{% static 'image/border.png' %}" alt="border">
+			<h1>NEWSLETTER</h1>
+			<p>Subscribe to the COLLECTIONCARS mailing list to <br>
+				receive updates on new arrivals, special offers <br>
+				and other discount information.</p>
+		</div>
+		<form method="post" action="{% url 'emailsub' %}">
+			{% csrf_token %}
+		<div class="rightside">
+			
+			<img class="newsimage" src="{% static 'image/wp1882510-kawasaki-ninja-h2r-wallpapers.jpg' %}" alt="newsletter">
+			<input type="email" class="form-control" id="subemail" name="emailsub" placeholder="EMAIL">
+			
+			<button type="submit">SUBSCRIBE</button> </form>
+		</div>
+	</div>
+	<!-- ______________________________________________________Bottom Menu ______________________________-->
+	{% endblock %}
+	<div class="bottommenu">
+		<div class="bottomlogo">
+		<span class="dotlogo">&bullet;</span><img src="" alt=""><span class="dotlogo">&bullet;;</span>
+		</div>
+		<ul class="nav nav-tabs bottomlinks" style="padding-left: 350px;">
+			<!-- <li role="presentation" ><a href="#/" role="button">About US</a></li> -->
+			<li role="presentation"><a href="#/">Categories</a></li>
+			<!-- <li role="presentation"><a href="#/">Preorders</a></li> -->
+			<li role="presentation"><a href="{% url 'contactpg' %}">Contact Us</a></li>
+			<li role="presentation"><a href="{% url 'bikenews' %}">NewsAboutBIKES</a></li>
+		</ul>
+		<p> “That is why, as soon as I felt a real attraction for my first passion which was <br> the motorcycle, and in spite of the danger it could represent, they encouraged me.”
+			</p>
+		 <img src="" alt=""> <br>
+		 <div class="bottomsocial">
+		 	<a href="#"><i class="fa fa-facebook"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-google-plus"></i></a>
+		</div>
+		
+			<div class="footer">
+				<div class="copyright">
+				  &copy; Copy right 2023 | <a href="#">Privacy </a>| <a href="#">Policy</a>
+				</div>
+				<div class="atisda">
+					 Designed by <a href="https://instagram.com/niyas_mohammed046?igshid=YmMyMTA2M2Y=">Niyas Mohammed</a> 
+				</div>
+			</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="{% static 'source/bootstrap-3.3.6-dist/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'source/js/isotope.js' %}"></script>
+<script type="text/javascript" src="{% static 'source/js/myscript.js' %}"></script> 
+<script type="text/javascript" src="{% static 'source/bootstrap-3.3.6-dist/js/jquery.1.11.js' %}"></script>
+<script type="text/javascript" src="{% static 'source/bootstrap-3.3.6-dist/js/bootstrap.js' %}"></script>
+</body>
+</html>

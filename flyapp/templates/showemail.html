@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'indexpg.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Email Newsletter</h5>
+            <div class="table-responsive">
+             <table class="table table-striped">
+                <thead>
+            <tr>
+                    
+                    
+                    <th scope="col">Email</th>
+                   
+                   
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% for d in data %}
+
+                  <tr>
+                   
+                   
+                    <td>{{d.Emailsub}}</td>
+
+                    <td>
+                        <form action="{% url 'deleteemail' dataid=d.id %}">
+                        <button type="submit" class="btn btn-danger" >Delete</button> </form>
+                    </td>
+                   
+             </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+          </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+{% endblock %}

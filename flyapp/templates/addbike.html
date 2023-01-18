@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'indexpg.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bikes</title>
+</head>
+<body>
+    <form method="post" action="{% url 'savebike' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="make">Model Name:</label><br>
+        <input type="text" id="bikename" name="bikename"><br>
+        <label for="company">Company:</label><br>
+        <input type="text" id="company" name="company"><br>
+        <label for="price">Price per Day:</label><br>
+        <input type="number" id="price" name="price"><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br><br>
+        <div>
+ 
+            <select name="category" style="height: 30px; width: 200px; color: aliceblue;" class="form-control">
+              {% for d in data %}
+              <option>{{d.Category}}</option>
+              {% endfor %}
+            </select>
+            
+            <span class="form-bar"></span>
+            <div> <br>
+        <input type="file" name="image"> <br> <br>       
+        <input type="submit" class="btn btn-success" value="Submit">  
+      </form> 
+</body>
+</html>
+{% endblock %}

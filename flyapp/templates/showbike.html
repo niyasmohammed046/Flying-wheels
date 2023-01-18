@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% extends 'indexpg.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Added Bikes</h5>
+            <div class="table-responsive">
+             <table class="table table-striped">
+                <thead>
+            <tr>
+                    
+                    <th scope="col">Bike Model</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Price per Day</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Image</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% for d in data %}
+
+                  <tr>
+                   
+                    <td>{{d.Bikename}}</td>
+                    <td>{{d.Company}}</td>
+                    <td>{{d.Price}}</td>
+                    <td>{{d.Description}}</td>
+                    <td>{{d.PCategory}}</td>
+                    <td> <img src="{{d.Image.url}}" style="width: 70px;"></td>
+                    <td>
+                    <form action="{% url 'editbike' dataid=d.id %}">
+                    <button type="submit" class="btn btn-dark" >EDIT</button> </form>
+                  </td>
+                <td>
+                    <form action="{% url 'deletebike' dataid=d.id %}">
+                    <button type="submit" class="btn btn-danger" >DELETE</button> </form>
+                </td>
+
+             </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+          </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+{% endblock %}

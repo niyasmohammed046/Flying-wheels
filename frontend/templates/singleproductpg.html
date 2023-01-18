@@ -1,0 +1,66 @@
+
+{% extends "findex.html" %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+
+</head>
+<body>
+<div  style="background-image: url('images/bg_1.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div>
+            <h1 style="text-align: center;" >Book Now</h1>
+          </div>
+        </div>
+      </div>
+    </div> <br> <br>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-6 mb-5 ftco-animate">
+    				<a href="" class="image-popup"><img src="{{ data.Image.url }}" class="img-fluid" style="height: 400px; width: 400;" alt="Colorlib Template"></a>
+    			</div>
+				
+    			<div style="padding-left: 200px;" class="col-lg-6 product-details pl-md-5 ftco-animate">
+    				<h2>{{ data.Company}}</h2>
+    				<h3>{{ data.Bikename}}</h3>
+					<p>{{data.Description}}</p>
+           
+			<form action="{% url 'frontendloginpage' %}">
+            <p>Price per day:{{data.Price}}</p>
+			<input type="hidden" name="price" id="price" value="{{ data.Price }}">
+			<p> <b>Choose Days</b></p>
+			<input type="number" min="1" max="10" name="qty" id="qty" value="1" required><br>
+
+			<p class="price">Total price:</p>
+			<input type="text" name="totalprice" value="{{ data.Price }}" id="totalprice"><br><br>
+			
+				<button type="submit"  class="btn btn-primary">Add to Cart</button>
+		    </form>
+			<!-- </li> --> <br> <br> <br> <br> <br> <br> <br> <br> 
+        </div>
+    </div>
+</div>
+</section>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#qty").change(function(){
+qty=document.getElementById("qty").value; 
+price=document.getElementById("price").value;
+totalprice=qty * price;
+document.getElementById("totalprice").value = totalprice;
+
+
+});
+});
+</script>
+</body>
+
+</html>
+{% endblock %}

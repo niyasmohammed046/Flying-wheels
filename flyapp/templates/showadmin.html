@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends "indexpg.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Added Admin</h5>
+            <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email ID</th>
+                  <th scope="col">Mobile Number</th>
+                  <th scope="col">Password</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for d in data %}
+                <tr>
+                  
+                  <td>{{d.Name}}</td>
+                  <td>{{d.Email}}</td>
+                  <td>{{d.Mobile}}</td>
+                  <td>{{d.Password}}</td>
+                  <td>
+                    <form>
+                    <button type="submit" class="btn btn-dark" >EDIT</button> </form>
+                </td>   
+                <td>
+                    <form>
+                    <button type="submit" class="btn btn-danger" >DELETE</button> </form>
+                </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+{% endblock %}
