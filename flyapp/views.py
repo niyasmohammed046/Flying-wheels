@@ -146,20 +146,20 @@ def deleteemail(request,dataid):
 
 #login
 
-def login(request):
+def adminlogin(request):
     return render(request,"loginpage.html")
 def loginauth(request):
     if request.method=="POST":
-        usrname=request.POST.get('username')
-        psd=request.POST.get('password')
-        if User.objects.filter(username__contains=usrname).exists():
-            user=authenticate(username=usrname,password=psd)
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        if User.objects.filter(username__contains=username).exists():
+            user=authenticate(username=username,password=password)
             if user is not None:
                 login(request,user)
-                request.session['username']=usrname
-                request.session['password']=psd
+                request.session['username']=username
+                request.session['password']=password
                 return redirect(index)
             else:
-                return redirect(login)
+                return redirect(adminlogin)
         else:
-            return redirect(login)
+            return redirect(adminlogin)

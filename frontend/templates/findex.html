@@ -70,7 +70,7 @@
 				<li class="active"><a href="{% url 'frontendloginpage' %}">Login | Register</a> </li>
 
 				{% if request.session.username %}
-				<span style="position: absolute; padding-left: 380px; padding-top: 3px; color: rgb(8, 47, 69);"> <b>{{request.session.username}}</b></span>
+				<span style="position: absolute; padding-left: 280px; padding-top: 3px; color: rgb(8, 47, 69);"> <b>Welcome <br> {{request.session.username}}</b></span>
 				{% endif %}
 				<!-- <li class="active"><a href="{% url 'logout' %}">Logout</a> </li> -->
 

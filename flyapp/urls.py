@@ -41,6 +41,6 @@ urlpatterns = [
 
 #login
 
-    path('adminlogin/',views.login,name="login"),
+    path('adminlogin/',views.adminlogin,name="adminlogin"),
     path('loginauth/',views.loginauth,name="loginauth")
 ]
